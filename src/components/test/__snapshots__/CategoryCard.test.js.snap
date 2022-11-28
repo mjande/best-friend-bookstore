@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CategoryCard renders CategoryCard without errors 1`] = `
+exports[`CategoryCard renders CategoryCard with link to category 1`] = `
 <div>
   <div
     class="category test"

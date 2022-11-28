@@ -12,12 +12,12 @@ const NavBar = () => {
       </div>
 
       <div className="nav-links">
-        <div>Fiction</div>
-        <div>Nonfiction</div>
-        <div>
+        <a href="#">Fiction</a>
+        <a href="#">Nonfiction</a>
+        <a href="#">
           Categories
           <FontAwesomeIcon icon={faCaretDown} />
-        </div>
+        </a>
       </div>
     </nav>
   );

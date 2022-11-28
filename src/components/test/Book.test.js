@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import Book from "../Book";
 
 describe("Book", () => {
-  it("renders book without errors", () => {
+  it("renders book with image, title, author, and rating", () => {
     const { container } = render(
       <Book title="Test Title" author="Test Author" image="#" rating="5" />
     );

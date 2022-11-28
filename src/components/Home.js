@@ -12,7 +12,7 @@ const Home = () => {
       <Hero />
       <div className="categories">
         {categories.map((category) => (
-          <CategoryCard name={category} key={uniqid()} />
+          <CategoryCard name={category} key={uniqid()} role="article" />
         ))}
       </div>
     </div>

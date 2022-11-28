@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Book renders book without errors 1`] = `
+exports[`Book renders book with image, title, author, and rating 1`] = `
 <div>
   <div
     class="Book"

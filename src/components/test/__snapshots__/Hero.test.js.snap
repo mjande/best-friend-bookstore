@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hero renders hero without errors 1`] = `
+exports[`Hero renders hero with image and quote 1`] = `
 <div>
   <section
     class="hero"
   >
     <div
       class="hero-img"
+      role="img"
     />
     <h2
       class="hero-quote"

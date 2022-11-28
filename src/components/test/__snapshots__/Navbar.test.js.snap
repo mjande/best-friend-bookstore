@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar renders navbar without errors 1`] = `
+exports[`Navbar renders navbar with header and links 1`] = `
 <div>
   <nav>
     <div
@@ -28,13 +28,19 @@ exports[`Navbar renders navbar without errors 1`] = `
     <div
       class="nav-links"
     >
-      <div>
+      <a
+        href="#"
+      >
         Fiction
-      </div>
-      <div>
+      </a>
+      <a
+        href="#"
+      >
         Nonfiction
-      </div>
-      <div>
+      </a>
+      <a
+        href="#"
+      >
         Categories
         <svg
           aria-hidden="true"
@@ -51,7 +57,7 @@ exports[`Navbar renders navbar without errors 1`] = `
             fill="currentColor"
           />
         </svg>
-      </div>
+      </a>
     </div>
   </nav>
 </div>

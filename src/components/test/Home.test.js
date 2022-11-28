@@ -11,7 +11,7 @@ jest.mock("../Hero", () => HeroMock);
 jest.mock("../CategoryCard", (props) => CategoryCardMock);
 
 describe("Home", () => {
-  it("renders home page without errors", () => {
+  it("renders home page with hero and category cards", () => {
     render(<Home />, { wrapper: BrowserRouter });
     expect(screen.getByText("HeroMock")).toBeInTheDocument();
     expect(screen.getByText("mysteryMock")).toBeInTheDocument();
