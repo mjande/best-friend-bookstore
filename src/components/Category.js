@@ -6,14 +6,14 @@ import "../styles/Category.css";
 
 const Category = () => {
   const params = useParams();
-  const category =
+  const categoryTitle =
     params.category.at(0).toUpperCase() + params.category.slice(1);
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=subject:${category}&maxResults=3&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+        `https://www.googleapis.com/books/v1/volumes?q=subject:${params.category}&maxResults=10&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
         { mode: "cors" }
       );
       const json = await response.json();
@@ -22,11 +22,12 @@ const Category = () => {
     };
 
     fetchBooks().catch(console.error);
-  }, [category]);
+  }, [params.category]);
 
   return (
     <div>
-      <h2>{category}</h2>
+      <h2 className="category-header">{categoryTitle}</h2>
+      <hr />
       {/* <Filters />
       <SortBar /> */}
       <div className="books-container">
@@ -36,8 +37,12 @@ const Category = () => {
               key={book.id}
               title={book.volumeInfo.title}
               author={book.volumeInfo.authors[0]}
-              image={book.volumeInfo.imageLinks.smallThumbnail}
               rating={book.volumeInfo.averageRating}
+              image={
+                book.volumeInfo.imageLinks
+                  ? book.volumeInfo.imageLinks.smallThumbnail
+                  : "https://via.placeholder.com/150x200.png?text=No+Cover+Available"
+              }
             />
           );
         })}

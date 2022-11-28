@@ -6,6 +6,7 @@ nav {
   align-items: flex-end;
   padding: 0 2rem 0.75rem;
   height: 10vh;
+  border-bottom: solid;
 }
 
 .nav-left,
