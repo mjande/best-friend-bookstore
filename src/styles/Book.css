@@ -1,0 +1,14 @@
+.Book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Book img {
+  border: solid 0.5px;
+}
+
+.Book-details {
+  text-align: center;
+}

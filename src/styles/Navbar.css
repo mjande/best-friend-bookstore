@@ -1,0 +1,17 @@
+nav {
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 2rem 0.75rem;
+  height: 10vh;
+}
+
+.nav-left,
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-end;
+}

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero renders hero without errors 1`] = `
+<div>
+  <section
+    class="hero"
+  >
+    <div
+      class="hero-img"
+    />
+    <h2
+      class="hero-quote"
+    >
+      “Outside of a dog, a book is man's best friend. Inside of a dog it's too dark to read.” 
+      <br />
+       Groucho Marx
+    </h2>
+  </section>
+</div>
+`;

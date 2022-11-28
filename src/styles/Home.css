@@ -1,0 +1,4 @@
+.categories {
+  display: grid;
+  grid-template: 25vh 25vh / 1fr 1fr;
+}

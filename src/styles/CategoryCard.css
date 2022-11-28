@@ -1,0 +1,31 @@
+.category {
+  border: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-link {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+}
+
+.category.mystery {
+  background-image: url("../img/pexels-cottonbro-studio-8369520.jpg");
+}
+
+.category.romance {
+  background-image: url("../img/pexels-picjumbocom-196664.jpg");
+}
+
+.category.science-fiction {
+  background-image: url("../img/pexels-hristo-fidanov-1252890.jpg");
+}
+
+.category.fantasy {
+  background-image: url("../img/pexels-craig-adderley-3359734.jpg");
+  background-position: center;
+  background-size: cover;
+}

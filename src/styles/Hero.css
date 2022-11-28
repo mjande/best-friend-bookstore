@@ -1,0 +1,25 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.hero-img {
+  background-image: url("..//img/pexels-ksenia-chernaya-3952071.jpg");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  filter: brightness(0.3);
+  top: 10vh;
+  z-index: -1;
+  height: 40vh;
+  width: 100vw;
+}
+
+.hero-quote {
+  color: white;
+  text-align: center;
+  width: 550px;
+}

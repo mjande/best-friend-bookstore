@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryCard renders CategoryCard without errors 1`] = `
+<div>
+  <div
+    class="category test"
+  >
+    <a
+      class="category-link"
+      href="/category/test"
+    >
+      Test
+    </a>
+  </div>
+</div>
+`;
