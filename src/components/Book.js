@@ -11,14 +11,33 @@ const Book = ({ title, author, image, rating }) => {
   function stars() {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
-      if (rating - i >= 1) {
-        stars.push(<FontAwesomeIcon icon={fasStar} />);
-      } else if (rating - i === 0.5) {
+      if (i <= rating) {
         stars.push(
-          <FontAwesomeIcon icon={faStarHalfStroke} aria-hidden="true" />
+          <FontAwesomeIcon
+            icon={fasStar}
+            aria-hidden="true"
+            data-testid="star-solid"
+            key={`star${i}`}
+          />
+        );
+      } else if (i - rating === 0.5) {
+        stars.push(
+          <FontAwesomeIcon
+            icon={faStarHalfStroke}
+            aria-hidden="true"
+            data-testid="star-half-solid"
+            key={`star${i}`}
+          />
         );
       } else {
-        stars.push(<FontAwesomeIcon icon={farStar} />);
+        stars.push(
+          <FontAwesomeIcon
+            icon={farStar}
+            aria-hidden="true"
+            data-testid="star-empty"
+            key={`star${i}`}
+          />
+        );
       }
     }
 
@@ -30,7 +49,7 @@ const Book = ({ title, author, image, rating }) => {
       <img src={image} alt="Book cover"></img>
       <div className="Book-details">
         <h3>{title}</h3>
-        <div>By {author}</div>
+        <h4>By {author}</h4>
         <div
           className="stars-container"
           role="img"
