@@ -5,7 +5,7 @@ import uniqid from "uniqid";
 import "../styles/Home.css";
 
 const Home = () => {
-  const categories = ["Mystery", "Romance", "Science Fiction", "Fantasy"];
+  const categories = ["mystery", "romance", "science-fiction", "fantasy"];
 
   return (
     <div>
