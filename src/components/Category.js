@@ -4,20 +4,28 @@ import { useState, useEffect } from "react";
 
 import "../styles/Category.css";
 
+/* 
+Fetch Books Pathway
+- Fetch category using subject API
+- Returns Works Key (...W)
+- Fetch Work page using Work Key
+
+*/
+
 const Category = () => {
   const params = useParams();
-  const categoryTitle =
-    params.category.at(0).toUpperCase() + params.category.slice(1);
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=subject:${params.category}&maxResults=10&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
-        { mode: "cors" }
+        `http://openlibrary.org/subjects/${params.category.toLowerCase()}.json`,
+        {
+          mode: "cors",
+        }
       );
       const json = await response.json();
-      const booksData = json.items;
+      const booksData = json.works;
       setBooks(booksData);
     };
 
@@ -26,7 +34,7 @@ const Category = () => {
 
   return (
     <div>
-      <h2 className="category-header">{categoryTitle}</h2>
+      <h2 className="category-header">{params.category}</h2>
       <hr />
       {/* <Filters />
       <SortBar /> */}
@@ -34,15 +42,11 @@ const Category = () => {
         {books.map((book) => {
           return (
             <Book
-              key={book.id}
-              title={book.volumeInfo.title}
-              author={book.volumeInfo.authors[0]}
-              rating={book.volumeInfo.averageRating}
-              image={
-                book.volumeInfo.imageLinks
-                  ? book.volumeInfo.imageLinks.smallThumbnail
-                  : "https://via.placeholder.com/150x200.png?text=No+Cover+Available"
-              }
+              key={book.key}
+              workKey={book.key}
+              title={book.title}
+              author={book.authors[0].name}
+              coverSrc={book.cover_id}
             />
           );
         })}
