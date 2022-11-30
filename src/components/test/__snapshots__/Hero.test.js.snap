@@ -3,6 +3,7 @@
 exports[`Hero renders hero with image and quote 1`] = `
 <div>
   <section
+    aria-label="hero"
     class="hero"
   >
     <div

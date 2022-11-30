@@ -2,7 +2,7 @@ import "../styles/Hero.css";
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section className="hero" aria-label="hero">
       <div className="hero-img" role="img"></div>
       <h2 className="hero-quote">
         “Outside of a dog, a book is man's best friend. Inside of a dog it's too

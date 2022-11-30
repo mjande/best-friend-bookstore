@@ -5,18 +5,10 @@ import "@testing-library/jest-dom";
 
 import Home from "../Home";
 
-const HeroMock = () => <div>HeroMock</div>;
-const CategoryCardMock = ({ name }) => <div>{name}Mock</div>;
-jest.mock("../Hero", () => HeroMock);
-jest.mock("../CategoryCard", (props) => CategoryCardMock);
-
 describe("Home", () => {
-  it("renders home page with hero and category cards", () => {
+  it("renders home page with hero and category cards with links", () => {
     render(<Home />, { wrapper: BrowserRouter });
-    expect(screen.getByText("HeroMock")).toBeInTheDocument();
-    expect(screen.getByText("mysteryMock")).toBeInTheDocument();
-    expect(screen.getByText("romanceMock")).toBeInTheDocument();
-    expect(screen.getByText("science-fictionMock")).toBeInTheDocument();
-    expect(screen.getByText("fantasyMock")).toBeInTheDocument();
+    expect(screen.getByLabelText("hero")).toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(4);
   });
 });
