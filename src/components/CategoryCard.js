@@ -6,7 +6,7 @@ const CategoryCard = (props) => {
 
   return (
     <div className={`category ${props.name}`}>
-      <Link to={`/category/${props.name}`} className="category-link">
+      <Link to={`/books/${props.name}`} className="category-link">
         {categoryTitle}
       </Link>
     </div>

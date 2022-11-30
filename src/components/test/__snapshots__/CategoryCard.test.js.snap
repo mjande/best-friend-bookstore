@@ -7,7 +7,7 @@ exports[`CategoryCard renders CategoryCard with link to category 1`] = `
   >
     <a
       class="category-link"
-      href="/category/test"
+      href="/books/test"
     >
       Test
     </a>

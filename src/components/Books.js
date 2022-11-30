@@ -4,15 +4,7 @@ import { useState, useEffect } from "react";
 
 import "../styles/Category.css";
 
-/* 
-Fetch Books Pathway
-- Fetch category using subject API
-- Returns Works Key (...W)
-- Fetch Work page using Work Key
-
-*/
-
-const Category = () => {
+const Books = () => {
   const params = useParams();
   const [books, setBooks] = useState([]);
 
@@ -24,6 +16,7 @@ const Category = () => {
           mode: "cors",
         }
       );
+
       const json = await response.json();
       const booksData = json.works;
       setBooks(booksData);
@@ -55,4 +48,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Books;

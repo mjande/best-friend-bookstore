@@ -1,9 +1,8 @@
 import "../styles/Book.css";
-import { useEffect } from "react";
 
 const Book = ({ title, author, coverSrc }) => {
   return (
-    <div className="Book">
+    <article className="Book">
       <img
         src={`https://covers.openlibrary.org/b/id/${coverSrc}.jpg`}
         alt="Book cover"
@@ -12,7 +11,7 @@ const Book = ({ title, author, coverSrc }) => {
         <h3>{title}</h3>
         <h4>by {author}</h4>
       </div>
-    </div>
+    </article>
   );
 };
 

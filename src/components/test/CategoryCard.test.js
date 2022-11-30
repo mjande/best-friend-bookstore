@@ -4,7 +4,6 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import CategoryCard from "../CategoryCard";
-import { toHaveAttribute } from "@testing-library/jest-dom/dist/matchers";
 
 describe("CategoryCard", () => {
   it("renders CategoryCard with link to category", () => {
@@ -15,7 +14,7 @@ describe("CategoryCard", () => {
     const LinkElement = screen.getByRole("link");
     expect(LinkElement).toBeInTheDocument();
     expect(LinkElement).toHaveTextContent("Test");
-    expect(LinkElement).toHaveAttribute("href", "/category/test");
+    expect(LinkElement).toHaveAttribute("href", "/books/test");
 
     expect(container).toMatchSnapshot();
   });

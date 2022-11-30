@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Category from "./components/Category";
+import Books from "./components/Books";
 import "./App.css";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/category/:category" element={<Category />} />
+          <Route path="/books/:category" element={<Books />} />
         </Routes>
       </BrowserRouter>
     </div>
