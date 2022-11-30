@@ -1,6 +1,6 @@
 import "../styles/BookCard.css";
 
-const BookCard = ({ title, author, coverSrc }) => {
+const BookCard = ({ title, author, coverSrc, workKey, addToCart }) => {
   return (
     <article className="BookCard">
       <img
@@ -11,7 +11,9 @@ const BookCard = ({ title, author, coverSrc }) => {
         <h3>{title}</h3>
         <h4>by {author}</h4>
       </div>
-      <button>Add to Cart</button>
+      <button onClick={addToCart} data-work-id={workKey}>
+        Add to Cart
+      </button>
     </article>
   );
 };

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import "../styles/Category.css";
 
-const Books = () => {
+const Books = ({ addToCart }) => {
   const params = useParams();
   const [books, setBooks] = useState([]);
 
@@ -40,6 +40,7 @@ const Books = () => {
               title={book.title}
               author={book.authors[0].name}
               coverSrc={book.cover_id}
+              addToCart={addToCart}
             />
           );
         })}
