@@ -1,6 +1,6 @@
 import "../styles/Book.css";
 
-const Book = ({ title, author, coverSrc }) => {
+const BookCard = ({ title, author, coverSrc }) => {
   return (
     <article className="Book">
       <img
@@ -15,4 +15,4 @@ const Book = ({ title, author, coverSrc }) => {
   );
 };
 
-export default Book;
+export default BookCard;

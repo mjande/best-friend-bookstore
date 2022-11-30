@@ -1,12 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Book from "../Book";
+import BookCard from "../BookCard";
 
-describe("Book", () => {
+describe("BookCard", () => {
   it("renders book with image, title, author", () => {
     const { container } = render(
-      <Book title="Test Title" author="Test Author" image="#" />
+      <BookCard title="Test Title" author="Test Author" image="#" />
     );
 
     const imageElement = screen.getByRole("img", { name: "Book cover" });

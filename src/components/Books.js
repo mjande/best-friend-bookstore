@@ -1,4 +1,4 @@
-import Book from "./Book";
+import BookCard from "./BookCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -34,7 +34,7 @@ const Books = () => {
       <div className="books-container">
         {books.map((book) => {
           return (
-            <Book
+            <BookCard
               key={book.key}
               workKey={book.key}
               title={book.title}

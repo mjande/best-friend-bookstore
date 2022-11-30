@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Book renders book with image, title, author 1`] = `
+exports[`BookCard renders book with image, title, author 1`] = `
 <div>
   <article
     class="Book"
