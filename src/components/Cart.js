@@ -1,3 +1,4 @@
+import CartItem from "./CartItem";
 import "../styles/Cart.css";
 
 const Cart = () => {
@@ -18,15 +19,7 @@ const Cart = () => {
             <h3 className="total-price">Total</h3>
           </div>
           {cartItems.map((item) => (
-            <div className="item-container">
-              <div className="item">
-                <h4>{item.title}</h4>
-                <div>{item.authors[0].name}</div>
-              </div>
-              <div className="quantity">10</div>
-              <div className="item-price">$25.00</div>
-              <div className="total-price">$250.00</div>
-            </div>
+            <CartItem obj={item} />
           ))}
         </div>
         <div className="cart-data">Total $99.00</div>
