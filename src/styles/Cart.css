@@ -1,0 +1,33 @@
+.cart-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-page h2 {
+  margin: 1rem;
+}
+
+.cart-body {
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cart-items-container {
+  width: 60%;
+  display: grid;
+  grid-template-columns: 10rem 1fr 8rem 5rem;
+}
+
+.cart-items-container h3,
+.cart-items-container div {
+  border: solid;
+}
+
+.cart-data {
+  width: 35%;
+  min-width: 20rem;
+}
