@@ -16,3 +16,10 @@ nav {
   gap: 1rem;
   align-items: flex-end;
 }
+
+.cart-link,
+.categories-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
