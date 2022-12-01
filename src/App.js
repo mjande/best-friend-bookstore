@@ -18,16 +18,14 @@ const App = () => {
   return (
     <div>
       <Navbar cartCount={cartItems.length} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/books/:category"
-            element={<Books addToCart={addToCart} />}
-          />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/books/:category"
+          element={<Books addToCart={addToCart} />}
+        />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
     </div>
   );
 };

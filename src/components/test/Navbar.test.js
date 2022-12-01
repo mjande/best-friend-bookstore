@@ -10,7 +10,7 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
 
     expect(headerElement.textContent).toBe("Best Friend Bookstore");
-    expect(links).toHaveLength(3);
+    expect(links).toHaveLength(2);
 
     expect(container).toMatchSnapshot();
   });
