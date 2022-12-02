@@ -22,7 +22,9 @@ const Cart = () => {
             <CartItem obj={item} />
           ))}
         </div>
-        <div className="cart-data">Total $99.00</div>
+        <div className="cart-data" data-testid="cart-total">
+          Total $99.00
+        </div>
       </div>
     </div>
   );

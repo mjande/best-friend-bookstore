@@ -2,7 +2,7 @@ import "../styles/Cart.css";
 
 const CartItem = ({ obj }) => {
   return (
-    <div className="item-container">
+    <div className="item-container" aria-label="cart-item">
       <div className="item">
         <h4>{obj.title}</h4>
         <div>{obj.authors[0].name}</div>
