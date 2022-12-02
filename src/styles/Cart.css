@@ -15,15 +15,11 @@
   flex-wrap: wrap;
 }
 
-.cart-items-container {
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: solid;
   flex: 2 2 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.item-container,
-.cart-items-labels {
-  display: flex;
 }
 
 .item {
@@ -35,13 +31,13 @@
   width: 8rem;
 }
 
-.item-price,
+.price,
 .total-price {
-  width: 5rem;
+  min-width: 5rem;
 }
 
-.cart-items-container h3,
-.cart-items-container div {
+table th,
+table td {
   border: solid;
 }
 

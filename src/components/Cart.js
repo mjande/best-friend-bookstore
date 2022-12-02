@@ -11,17 +11,21 @@ const Cart = () => {
     <div className="cart-page">
       <h2>My Cart</h2>
       <div className="cart-body">
-        <div className="cart-items-container">
-          <div className="cart-items-labels">
-            <h3 className="item">Items</h3>
-            <h3 className="quantity">Quantity</h3>
-            <h3 className="item-price">Item Price</h3>
-            <h3 className="total-price">Total</h3>
-          </div>
-          {cartItems.map((item) => (
-            <CartItem obj={item} />
-          ))}
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th className="item">Items</th>
+              <th className="quantity">Quantity</th>
+              <th className="price">Item Price</th>
+              <th className="total-price">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartItems.map((item) => (
+              <CartItem obj={item} />
+            ))}
+          </tbody>
+        </table>
         <div className="cart-data" data-testid="cart-total">
           Total $99.00
         </div>
