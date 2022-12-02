@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router-dom";
-import App from "../../App";
+import App from "../App";
 
 describe("App", () => {
   describe("Add To Cart button", () => {

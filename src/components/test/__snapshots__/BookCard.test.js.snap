@@ -3,14 +3,14 @@
 exports[`BookCard renders book with image, title, author 1`] = `
 <div>
   <article
-    class="Book"
+    class="BookCard"
   >
     <img
       alt="Book cover"
       src="https://covers.openlibrary.org/b/id/undefined.jpg"
     />
     <div
-      class="Book-details"
+      class="BookCard-details"
     >
       <h3>
         Test Title
@@ -20,6 +20,9 @@ exports[`BookCard renders book with image, title, author 1`] = `
         Test Author
       </h4>
     </div>
+    <button>
+      Add to Cart
+    </button>
   </article>
 </div>
 `;

@@ -9,19 +9,21 @@ describe("Cart", () => {
     const cartHeading = screen.getByRole("heading", { name: "My Cart" });
     expect(cartHeading).toBeInTheDocument();
 
-    const itemsHeading = screen.getByRole("heading", { name: "Items" });
-    expect(itemsHeading).toBeInTheDocument();
+    const itemsHeader = screen.getByRole("columnheader", { name: "Items" });
+    expect(itemsHeader).toBeInTheDocument();
 
-    const quantityHeading = screen.getByRole("heading", { name: "Quantity" });
-    expect(quantityHeading).toBeInTheDocument();
+    const quantityHeader = screen.getByRole("columnheader", {
+      name: "Quantity",
+    });
+    expect(quantityHeader).toBeInTheDocument();
 
-    const itemPriceHeading = screen.getByRole("heading", {
+    const itemPriceHeader = screen.getByRole("columnheader", {
       name: "Item Price",
     });
-    expect(itemPriceHeading).toBeInTheDocument();
+    expect(itemPriceHeader).toBeInTheDocument();
 
-    const totalHeading = screen.getByRole("heading", { name: "Total" });
-    expect(totalHeading).toBeInTheDocument();
+    const totalHeader = screen.getByRole("columnheader", { name: "Total" });
+    expect(totalHeader).toBeInTheDocument();
 
     expect(screen.getByTestId("cart-total")).toBeInTheDocument();
   });

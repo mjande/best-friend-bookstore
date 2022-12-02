@@ -1,15 +1,22 @@
+import { toPriceString } from "../helpers";
 import "../styles/Cart.css";
 
-const CartItem = ({ obj }) => {
+const CartItem = ({ book }) => {
   return (
     <tr className="item-container" aria-label="cart-item">
-      <td className="item">
-        <h4>{obj.title}</h4>
-        <div>{obj.authors[0].name}</div>
+      <td className="description" data-testid="item-description">
+        <h4>{book.title}</h4>
+        <div>{book.authors[0].name}</div>
       </td>
-      <td className="quantity">10</td>
-      <td className="price">$25.00</td>
-      <td className="total-price">$250.00</td>
+      <td className="quantity" data-testid="item-quantity">
+        {book.quantity}
+      </td>
+      <td className="price" data-testid="item-price">
+        {book.price}
+      </td>
+      <td className="total-price" data-testid="item-total-price">
+        {toPriceString(book.quantity * book.price)}
+      </td>
     </tr>
   );
 };
