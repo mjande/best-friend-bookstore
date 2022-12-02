@@ -18,7 +18,8 @@ nav {
 }
 
 .cart-link,
-.categories-link {
+.categories-link,
+.header {
   display: flex;
   align-items: center;
   gap: 0.5rem;

@@ -11,8 +11,10 @@ const NavBar = ({ cartCount }) => {
   return (
     <nav>
       <div className="nav-left">
-        <FontAwesomeIcon icon={faPaw} size="xl" />
-        <h1>Best Friend Bookstore</h1>
+        <a href="/" className="header">
+          <FontAwesomeIcon icon={faPaw} size="xl" />
+          <h1>Best Friend Bookstore</h1>
+        </a>
         <a href="#" className="categories-link">
           Categories
           <FontAwesomeIcon icon={faCaretDown} />
@@ -20,7 +22,7 @@ const NavBar = ({ cartCount }) => {
       </div>
 
       <div className="nav-right">
-        <a href="#" className="cart-link">
+        <a href="/cart" className="cart-link">
           <FontAwesomeIcon icon={faCartShopping} aria-hidden="true" />
           <div data-testid="cart-items-count">{cartCount} items</div>
         </a>
