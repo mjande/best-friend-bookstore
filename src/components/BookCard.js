@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "../styles/BookCard.css";
 
-const BookCard = ({ book, addToCart }) => {
+const BookCard = ({ book, addToCart, removeFromCart }) => {
   const [inCart, toggleInCart] = useState(false);
 
   const buttonClick = (e) => {
     toggleInCart(!inCart);
 
     if (inCart) {
-      // Remove from cart callback
+      removeFromCart(e);
     } else {
       addToCart(e);
     }

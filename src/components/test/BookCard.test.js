@@ -41,4 +41,27 @@ describe("BookCard", () => {
     expect(button).toHaveClass("in-cart");
     expect(addToCartMock.mock.calls.length).toBe(1);
   });
+
+  it("calls removeFromCart when clicking Remove from Cart button", () => {
+    const addToCartMock = jest.fn();
+    const removeFromCartMock = jest.fn();
+
+    render(
+      <BookCard
+        book={book}
+        addToCart={addToCartMock}
+        removeFromCart={removeFromCartMock}
+      />
+    );
+
+    let button = screen.getByRole("button", { name: "Add to Cart" });
+    userEvent.click(button);
+
+    button = screen.getByRole("button", { name: "Remove from Cart" });
+    userEvent.click(button);
+
+    button = screen.getByRole("button", { name: "Add to Cart" });
+    expect(button).toHaveClass("not-in-cart");
+    expect(removeFromCartMock.mock.calls.length).toBe(1);
+  });
 });
