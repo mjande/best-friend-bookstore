@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import CartItem from "../CartItem";
 
 describe("CartItem", () => {
@@ -8,6 +9,7 @@ describe("CartItem", () => {
       author: "Test Author",
       quantity: 2,
       price: 10,
+      coverSrc: "#",
     };
 
     render(
@@ -17,6 +19,9 @@ describe("CartItem", () => {
         </tbody>
       </table>
     );
+
+    const coverElement = screen.getByRole("img");
+    expect(coverElement).toBeInTheDocument();
 
     const titleElement = screen.getByTestId("item-title");
     expect(titleElement.textContent).toBe("Test Book");
