@@ -13,7 +13,7 @@ describe("BookCard", () => {
   };
 
   it("renders book with image, title, author, and add to cart button", () => {
-    render(<BookCard book={book} />);
+    render(<BookCard book={book} isInCart={jest.fn()} />);
 
     const imageElement = screen.getByRole("img", { name: "Book cover" });
     const titleElement = screen.getByRole("heading", { name: "Test Title" });
@@ -31,37 +31,34 @@ describe("BookCard", () => {
   it("calls addToCart when clicking Add To Cart button", () => {
     const addToCartMock = jest.fn();
 
-    render(<BookCard book={book} addToCart={addToCartMock} />);
+    render(
+      <BookCard book={book} addToCart={addToCartMock} isInCart={jest.fn()} />
+    );
 
     const button = screen.getByRole("button", { name: "Add to Cart" });
-    expect(button).toHaveClass("not-in-cart");
 
     userEvent.click(button);
 
-    expect(button).toHaveClass("in-cart");
     expect(addToCartMock.mock.calls.length).toBe(1);
   });
 
   it("calls removeFromCart when clicking Remove from Cart button", () => {
-    const addToCartMock = jest.fn();
     const removeFromCartMock = jest.fn();
+    const addToCartMock = jest.fn();
+    const isInCartMock = jest.fn().mockReturnValue(true);
 
     render(
       <BookCard
         book={book}
         addToCart={addToCartMock}
         removeFromCart={removeFromCartMock}
+        isInCart={isInCartMock}
       />
     );
 
-    let button = screen.getByRole("button", { name: "Add to Cart" });
+    let button = screen.getByRole("button", { name: "Remove from Cart" });
     userEvent.click(button);
 
-    button = screen.getByRole("button", { name: "Remove from Cart" });
-    userEvent.click(button);
-
-    button = screen.getByRole("button", { name: "Add to Cart" });
-    expect(button).toHaveClass("not-in-cart");
     expect(removeFromCartMock.mock.calls.length).toBe(1);
   });
 });

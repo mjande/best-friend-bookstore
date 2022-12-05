@@ -1,19 +1,6 @@
-import { useState } from "react";
 import "../styles/BookCard.css";
 
-const BookCard = ({ book, addToCart, removeFromCart }) => {
-  const [inCart, toggleInCart] = useState(false);
-
-  const buttonClick = (e) => {
-    toggleInCart(!inCart);
-
-    if (inCart) {
-      removeFromCart(e);
-    } else {
-      addToCart(e);
-    }
-  };
-
+const BookCard = ({ book, isInCart, addToCart, removeFromCart }) => {
   return (
     <article className="BookCard">
       <img
@@ -25,12 +12,12 @@ const BookCard = ({ book, addToCart, removeFromCart }) => {
         <h4>by {book.authors[0].name}</h4>
       </div>
       <button
-        onClick={buttonClick}
+        onClick={isInCart(book.cover_edition_key) ? removeFromCart : addToCart}
         data-work-id={book.key}
         data-edition-id={book.cover_edition_key}
-        className={inCart ? "in-cart" : "not-in-cart"}
+        className={isInCart(book.cover_edition_key) ? "in-cart" : "not-in-cart"}
       >
-        {inCart ? "Remove from Cart" : "Add to Cart"}
+        {isInCart(book.cover_edition_key) ? "Remove from Cart" : "Add to Cart"}
       </button>
     </article>
   );

@@ -32,7 +32,7 @@ describe("Books", () => {
       })
     );
 
-    render(<Books />);
+    render(<Books isInCart={jest.fn()} />);
 
     const headerElement = screen.getByRole("heading");
     const bookElements = await screen.findAllByRole("article");

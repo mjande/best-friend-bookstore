@@ -6,8 +6,12 @@ import Books from "./Books";
 import Cart from "./Cart";
 import "../styles/App.css";
 
-const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+const App = ({ initialCartItems = [] }) => {
+  const [cartItems, setCartItems] = useState(initialCartItems);
+
+  function isInCart(key) {
+    return cartItems.some((book) => book.cover_edition_key === key);
+  }
 
   async function addToCart(e) {
     const workID = e.target.dataset.workId;
@@ -27,6 +31,7 @@ const App = () => {
     const author = await authorResponse.json();
 
     const book = {
+      key: edition.key,
       title: work.title,
       author: author.personal_name,
       quantity: 1,
@@ -37,6 +42,17 @@ const App = () => {
     setCartItems([...cartItems, book]);
   }
 
+  function removeFromCart(e) {
+    const cartIndex = cartItems.findIndex(
+      (book) => (book.key = e.target.dataset.editionID)
+    );
+
+    setCartItems([
+      ...cartItems.slice(0, cartIndex),
+      ...cartItems.slice(cartIndex + 1, -1),
+    ]);
+  }
+
   return (
     <div>
       <Navbar cartCount={cartItems.length} />
@@ -44,7 +60,13 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="/books/:category"
-          element={<Books addToCart={addToCart} />}
+          element={
+            <Books
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              isInCart={isInCart}
+            />
+          }
         />
         <Route path="/cart" element={<Cart cartItems={cartItems} />} />
       </Routes>

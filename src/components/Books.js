@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import "../styles/Category.css";
 
-const Books = ({ addToCart }) => {
+const Books = ({ addToCart, removeFromCart, isInCart }) => {
   const params = useParams();
   const [books, setBooks] = useState([]);
 
@@ -34,7 +34,15 @@ const Books = ({ addToCart }) => {
       <SortBar /> */}
       <div className="books-container">
         {books.map((book) => {
-          return <BookCard key={book.key} book={book} addToCart={addToCart} />;
+          return (
+            <BookCard
+              key={book.key}
+              book={book}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              isInCart={isInCart}
+            />
+          );
         })}
       </div>
     </div>
