@@ -9,10 +9,31 @@ import "../styles/App.css";
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
-  function addToCart(e) {
+  async function addToCart(e) {
     const workID = e.target.dataset.workId;
+    const workResponse = await fetch(`https://openlibrary.org${workID}.json`);
+    const work = await workResponse.json();
 
-    setCartItems([...cartItems, workID]);
+    const editionID = e.target.dataset.editionId;
+    const editionResponse = await fetch(
+      `https://openlibrary.org/books/${editionID}.json`
+    );
+    const edition = await editionResponse.json();
+
+    const authorID = work.authors[0].author.key;
+    const authorResponse = await fetch(
+      `https://openlibrary.org${authorID}.json`
+    );
+    const author = await authorResponse.json();
+
+    const book = {
+      title: work.title,
+      author: author,
+      quantity: 1,
+      price: edition.number_of_pages ? edition.number_of_pages * 0.05 : 10,
+    };
+
+    setCartItems([...cartItems, book]);
   }
 
   return (
@@ -24,7 +45,7 @@ const App = () => {
           path="/books/:category"
           element={<Books addToCart={addToCart} />}
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
       </Routes>
     </div>
   );

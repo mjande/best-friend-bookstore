@@ -4,7 +4,9 @@ import Cart from "../Cart";
 
 describe("Cart", () => {
   it("renders page with headings and total price sidebar", () => {
-    render(<Cart />);
+    const cartItems = [];
+
+    render(<Cart cartItems={cartItems} />);
 
     const cartHeading = screen.getByRole("heading", { name: "My Cart" });
     expect(cartHeading).toBeInTheDocument();

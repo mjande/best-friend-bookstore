@@ -19,6 +19,7 @@ const Books = ({ addToCart }) => {
 
       const json = await response.json();
       const booksData = json.works;
+
       setBooks(booksData);
     };
 
@@ -33,16 +34,7 @@ const Books = ({ addToCart }) => {
       <SortBar /> */}
       <div className="books-container">
         {books.map((book) => {
-          return (
-            <BookCard
-              key={book.key}
-              workKey={book.key}
-              title={book.title}
-              author={book.authors[0].name}
-              coverSrc={book.cover_id}
-              addToCart={addToCart}
-            />
-          );
+          return <BookCard key={book.key} book={book} addToCart={addToCart} />;
         })}
       </div>
     </div>

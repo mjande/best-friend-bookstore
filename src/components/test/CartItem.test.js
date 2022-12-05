@@ -1,14 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import CartItem from "../CartItem";
 
 describe("CartItem", () => {
-  it("renders with item name, quantity, price, and total price", () => {
+  it("renders with title, author, quantity, price, and total price", () => {
     const book = {
-      title: "test",
-      authors: [{ name: "test" }],
+      title: "Test Book",
+      author: "Test Author",
       quantity: 2,
-      price: 5.0,
+      price: 10,
     };
 
     render(
@@ -19,16 +18,19 @@ describe("CartItem", () => {
       </table>
     );
 
-    const description = screen.getByTestId("item-description");
-    expect(description).toBeInTheDocument();
+    const titleElement = screen.getByTestId("item-title");
+    expect(titleElement.textContent).toBe("Test Book");
 
-    const quantity = screen.getByTestId("item-quantity");
-    expect(quantity).toBeInTheDocument();
+    const authorElement = screen.getByTestId("item-author");
+    expect(authorElement.textContent).toBe("Test Author");
 
-    const price = screen.getByTestId("item-price");
-    expect(price).toBeInTheDocument();
+    const quantityElement = screen.getByTestId("item-quantity");
+    expect(quantityElement.textContent).toBe("2");
+
+    const priceElement = screen.getByTestId("item-price");
+    expect(priceElement.textContent).toBe("$10.00");
 
     const totalPrice = screen.getByTestId("item-total-price");
-    expect(totalPrice.textContent).toBe("$10.00");
+    expect(totalPrice.textContent).toBe("$20.00");
   });
 });

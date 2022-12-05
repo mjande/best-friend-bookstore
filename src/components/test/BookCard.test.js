@@ -5,9 +5,14 @@ import BookCard from "../BookCard";
 
 describe("BookCard", () => {
   it("renders book with image, title, author", () => {
-    const { container } = render(
-      <BookCard title="Test Title" author="Test Author" image="#" />
-    );
+    const book = {
+      key: "0",
+      title: "Test Title",
+      authors: [{ name: "Test Author" }],
+      cover_edition_key: "0",
+    };
+
+    render(<BookCard book={book} />);
 
     const imageElement = screen.getByRole("img", { name: "Book cover" });
     const titleElement = screen.getByRole("heading", { name: "Test Title" });
@@ -18,7 +23,5 @@ describe("BookCard", () => {
     expect(imageElement).toBeInTheDocument();
     expect(titleElement).toBeInTheDocument();
     expect(authorElement).toBeInTheDocument();
-
-    expect(container).toMatchSnapshot();
   });
 });

@@ -22,10 +22,10 @@ const NavBar = ({ cartCount }) => {
       </div>
 
       <div className="nav-right">
-        <a href="/cart" className="cart-link">
+        <Link to="/cart" className="cart-link">
           <FontAwesomeIcon icon={faCartShopping} aria-hidden="true" />
           <div data-testid="cart-items-count">{cartCount} items</div>
-        </a>
+        </Link>
       </div>
     </nav>
   );

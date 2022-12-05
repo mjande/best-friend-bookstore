@@ -1,12 +1,7 @@
 import CartItem from "./CartItem";
 import "../styles/Cart.css";
 
-const Cart = () => {
-  const cartItems = [
-    { title: "Book1", authors: [{ name: "Author1" }], cover_id: "1" },
-    { title: "Book2", authors: [{ name: "Author2" }], cover_id: "2" },
-  ];
-
+const Cart = ({ cartItems }) => {
   return (
     <div className="cart-page">
       <h2>My Cart</h2>
@@ -21,8 +16,8 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((item, index) => (
-              <CartItem key={index} book={item} />
+            {cartItems.map((book, index) => (
+              <CartItem key={index} book={book} />
             ))}
           </tbody>
         </table>
