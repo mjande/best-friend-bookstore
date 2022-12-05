@@ -34,8 +34,11 @@ describe("BookCard", () => {
     render(<BookCard book={book} addToCart={addToCartMock} />);
 
     const button = screen.getByRole("button", { name: "Add to Cart" });
+    expect(button).toHaveClass("not-in-cart");
+
     userEvent.click(button);
 
+    expect(button).toHaveClass("in-cart");
     expect(addToCartMock.mock.calls.length).toBe(1);
   });
 });
