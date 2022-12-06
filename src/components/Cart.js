@@ -1,11 +1,45 @@
 import CartItem from "./CartItem";
+import { floatToPriceString } from "../helpers";
 import "../styles/Cart.css";
 
 const Cart = ({ cartItems }) => {
-  console.log(cartItems);
-  
+  const fakeCartItems = [
+    {
+      author: "Swift, Jonathan",
+      coverSrc: "https://covers.openlibrary.org/b/id/12717083-M.jpg",
+      key: "/books/OL26445784M",
+      price: 23.200000000000003,
+      quantity: 1,
+      title: "Gulliver's Travels",
+    },
+    {
+      author: "William Shakespeare",
+      coverSrc: "https://covers.openlibrary.org/b/id/7205924-M.jpg",
+      key: "/books/OL24594641M",
+      price: 3.2,
+      quantity: 1,
+      title: "A Midsummer Night's Dream",
+    },
+    {
+      author: "J. R. R. Tolkien",
+      coverSrc: "https://covers.openlibrary.org/b/id/8406786-M.jpg",
+      key: "/books/OL10682512M",
+      price: 14.350000000000001,
+      quantity: 1,
+      title: "The Hobbit",
+    },
+  ];
+
+  function subtotalPrice() {
+    const result = fakeCartItems.reduce(
+      (acc, curr) => acc + curr.price * curr.quantity,
+      0
+    );
+    return result;
+  }
+
   function itemsDisplay() {
-    if (cartItems.length === 0) {
+    if (fakeCartItems.length === 0) {
       return (
         <tr>
           <td colSpan={4}>
@@ -17,7 +51,9 @@ const Cart = ({ cartItems }) => {
       );
     }
 
-    return cartItems.map((book, index) => <CartItem key={index} book={book} />);
+    return fakeCartItems.map((book, index) => (
+      <CartItem key={index} book={book} />
+    ));
   }
 
   return (
@@ -35,8 +71,21 @@ const Cart = ({ cartItems }) => {
           </thead>
           <tbody>{itemsDisplay()}</tbody>
         </table>
-        <div className="cart-data" data-testid="cart-total">
-          Total $99.00
+        <div className="order-summary" data-testid="order-summary">
+          <h3>Order Summary</h3>
+          <dl>
+            <dt>Subtotal</dt>
+            <dd>{floatToPriceString(subtotalPrice())}</dd>
+
+            <dt>Shipping</dt>
+            <dd>FREE</dd>
+
+            <dt>Estimated Tax</dt>
+            <dd>{floatToPriceString(subtotalPrice() * 0.06)}</dd>
+
+            <dt>Total</dt>
+            <dd>{floatToPriceString(subtotalPrice() * 1.06)}</dd>
+          </dl>
         </div>
       </div>
     </div>

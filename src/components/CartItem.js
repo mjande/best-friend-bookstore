@@ -5,10 +5,12 @@ const CartItem = ({ book }) => {
   return (
     <tr className="item-container" aria-label="cart-item">
       <td className="description">
-        <img src={book.coverSrc} alt="Cover" data-testid="cover-image"></img>
-        <div>
-          <h4 data-testid="item-title">{book.title}</h4>
-          <div data-testid="item-author">{book.author}</div>
+        <div className="flex">
+          <img src={book.coverSrc} alt="Cover" data-testid="cover-image"></img>
+          <div>
+            <h4 data-testid="item-title">{book.title}</h4>
+            <div data-testid="item-author">{book.author}</div>
+          </div>
         </div>
       </td>
       <td className="quantity" data-testid="item-quantity">

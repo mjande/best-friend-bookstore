@@ -23,7 +23,6 @@ const App = ({ initialCartItems = [] }) => {
       `https://openlibrary.org/books/${editionID}.json`
     );
     const edition = await editionResponse.json();
-    console.log(edition.key);
 
     const authorID = work.authors[0].author.key;
     const authorResponse = await fetch(
@@ -49,8 +48,8 @@ const App = ({ initialCartItems = [] }) => {
     );
 
     if (cartIndex === -1) {
-      console.error('Something went wrong.');
-      return
+      console.error("Something went wrong.");
+      return;
     }
 
     setCartItems([
