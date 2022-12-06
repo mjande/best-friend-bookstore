@@ -4,10 +4,10 @@ const Hero = () => {
   return (
     <section className="hero" aria-label="hero">
       <div className="hero-img" role="img"></div>
-      <h2 className="hero-quote">
-        “Outside of a dog, a book is man's best friend. Inside of a dog it's too
-        dark to read.” <br /> Groucho Marx
-      </h2>
+      <div>
+        <q>A room without books is like a body without a soul.</q>
+        <p>Cicero</p>
+      </div>
     </section>
   );
 };

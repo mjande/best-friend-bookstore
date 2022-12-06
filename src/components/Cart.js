@@ -2,6 +2,8 @@ import CartItem from "./CartItem";
 import "../styles/Cart.css";
 
 const Cart = ({ cartItems }) => {
+  console.log(cartItems);
+  
   function itemsDisplay() {
     if (cartItems.length === 0) {
       return (

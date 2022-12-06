@@ -18,8 +18,17 @@
   width: 100vw;
 }
 
-.hero-quote {
+q {
   color: white;
   text-align: center;
   width: 550px;
+  font-size: 1.5rem;
+}
+
+p {
+  color: white;
+  margin: 0.5rem;
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  text-align: right;
 }

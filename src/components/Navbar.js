@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPaw,
+  faBook,
   faCaretDown,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
@@ -12,8 +12,8 @@ const NavBar = ({ cartCount }) => {
     <nav>
       <div className="nav-left">
         <a href="/" className="header">
-          <FontAwesomeIcon icon={faPaw} size="xl" />
-          <h1>Best Friend Bookstore</h1>
+          <FontAwesomeIcon icon={faBook} size="xl" />
+          <h1>Booklovers Bookstore</h1>
         </a>
         <a href="#" className="categories-link">
           Categories

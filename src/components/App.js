@@ -23,6 +23,7 @@ const App = ({ initialCartItems = [] }) => {
       `https://openlibrary.org/books/${editionID}.json`
     );
     const edition = await editionResponse.json();
+    console.log(edition.key);
 
     const authorID = work.authors[0].author.key;
     const authorResponse = await fetch(
@@ -44,8 +45,13 @@ const App = ({ initialCartItems = [] }) => {
 
   function removeFromCart(e) {
     const cartIndex = cartItems.findIndex(
-      (book) => (book.key = e.target.dataset.editionID)
+      (book) => (book.key = e.target.dataset.editionId)
     );
+
+    if (cartIndex === -1) {
+      console.error('Something went wrong.');
+      return
+    }
 
     setCartItems([
       ...cartItems.slice(0, cartIndex),
