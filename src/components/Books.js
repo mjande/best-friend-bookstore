@@ -1,6 +1,7 @@
 import BookCard from "./BookCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { kebabCaseToTitleCase } from "../helpers";
 
 import "../styles/Category.css";
 
@@ -28,7 +29,9 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
 
   return (
     <div>
-      <h2 className="category-header">{params.category}</h2>
+      <h2 className="category-header">
+        {kebabCaseToTitleCase(params.category)}
+      </h2>
       <hr />
       {/* <Filters />
       <SortBar /> */}

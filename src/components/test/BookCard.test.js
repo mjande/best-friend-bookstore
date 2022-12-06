@@ -28,21 +28,25 @@ describe("BookCard", () => {
     expect(buttonElement).toBeInTheDocument();
   });
 
-  it("calls addToCart when clicking Add To Cart button", () => {
+  it("calls addToCart and changes styles when clicking Add To Cart button", async () => {
     const addToCartMock = jest.fn();
 
     render(
       <BookCard book={book} addToCart={addToCartMock} isInCart={jest.fn()} />
     );
 
-    const button = screen.getByRole("button", { name: "Add to Cart" });
+    let button = screen.getByRole("button", { name: "Add to Cart" });
 
     userEvent.click(button);
 
     expect(addToCartMock.mock.calls.length).toBe(1);
+
+    button = await screen.findByRole("button", { name: "Remove from Cart" });
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass("in-cart");
   });
 
-  it("calls removeFromCart when clicking Remove from Cart button", () => {
+  it("calls removeFromCart and changes styles when clicking Remove from Cart button", async () => {
     const removeFromCartMock = jest.fn();
     const addToCartMock = jest.fn();
     const isInCartMock = jest.fn().mockReturnValue(true);
@@ -60,5 +64,9 @@ describe("BookCard", () => {
     userEvent.click(button);
 
     expect(removeFromCartMock.mock.calls.length).toBe(1);
+
+    button = await screen.findByRole("button", { name: "Add to Cart" });
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass("not-in-cart");
   });
 });

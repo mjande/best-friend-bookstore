@@ -3,8 +3,23 @@ import "@testing-library/jest-dom";
 import Cart from "../Cart";
 
 describe("Cart", () => {
-  it("renders page with headings and total price sidebar", () => {
-    const cartItems = [];
+  it("renders page with headings, items, and total price sidebar", () => {
+    const cartItems = [
+      {
+        coverSrc: "#",
+        title: "title1",
+        author: "author1",
+        quantity: 1,
+        price: 5,
+      },
+      {
+        coverSrc: "#",
+        title: "title2",
+        author: "author2",
+        quantity: 1,
+        price: 7,
+      },
+    ];
 
     render(<Cart cartItems={cartItems} />);
 
@@ -27,6 +42,19 @@ describe("Cart", () => {
     const totalHeader = screen.getByRole("columnheader", { name: "Total" });
     expect(totalHeader).toBeInTheDocument();
 
+    const cartItemElements = screen.getAllByRole("row", { name: "cart-item" });
+    expect(cartItemElements).toHaveLength(2);
+
     expect(screen.getByTestId("cart-total")).toBeInTheDocument();
+  });
+
+  it("renders empty cart message with empty cart", () => {
+    render(<Cart cartItems={[]} />);
+
+    expect(
+      screen.getByText(
+        "There are no items in your cart. Discover books using the categories or search bar at the top of the page."
+      )
+    ).toBeInTheDocument();
   });
 });

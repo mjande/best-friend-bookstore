@@ -37,7 +37,7 @@ describe("Books", () => {
     const headerElement = screen.getByRole("heading");
     const bookElements = await screen.findAllByRole("article");
 
-    expect(headerElement.textContent).toBe("test");
+    expect(headerElement.textContent).toBe("Test");
     expect(bookElements).toHaveLength(2);
   });
 });

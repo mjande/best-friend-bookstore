@@ -22,9 +22,21 @@ table {
   flex: 2 2 auto;
 }
 
-.item {
+.description {
   min-width: 15rem;
   flex-grow: 1;
+  display: flex;
+  border: none;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img {
+  height: 9rem;
+  width: 6rem;
+  box-sizing: border-box;
+  border: solid;
 }
 
 .quantity {

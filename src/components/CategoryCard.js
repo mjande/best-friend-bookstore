@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
+import { kebabCaseToTitleCase } from "../helpers";
 import "../styles/CategoryCard.css";
 
-const CategoryCard = (props) => {
-  const categoryTitle = props.name.at(0).toUpperCase() + props.name.slice(1);
-
+const CategoryCard = ({ name }) => {
   return (
-    <div className={`category ${props.name}`}>
-      <Link to={`/books/${props.name}`} className="category-link">
-        {categoryTitle}
+    <div className={`category ${name}`}>
+      <Link to={`/books/${name}`} className="category-link">
+        {kebabCaseToTitleCase(name)}
       </Link>
     </div>
   );

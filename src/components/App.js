@@ -36,7 +36,7 @@ const App = ({ initialCartItems = [] }) => {
       author: author.personal_name,
       quantity: 1,
       price: edition.number_of_pages ? edition.number_of_pages * 0.05 : 10,
-      coverSrc: `https://covers.openlibrary.org/b/id/${edition.covers[0]}-S.jpg`,
+      coverSrc: `https://covers.openlibrary.org/b/id/${edition.covers[0]}-M.jpg`,
     };
 
     setCartItems([...cartItems, book]);
