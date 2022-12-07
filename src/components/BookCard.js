@@ -2,6 +2,8 @@ import { useState } from "react";
 import "../styles/BookCard.css";
 
 const BookCard = ({ book, isInCart, addToCart, removeFromCart }) => {
+  console.log(book);
+
   const [cartStatus, setCartStatus] = useState(
     isInCart(book.cover_edition_key)
   );
@@ -28,7 +30,7 @@ const BookCard = ({ book, isInCart, addToCart, removeFromCart }) => {
       ></img>
       <div className="BookCard-details">
         <h3>{book.title}</h3>
-        <h4>by {book.authors?.[0].name || book.author_name}</h4>
+        <h4>by {book.authors?.[0]?.name || book.author_name}</h4>
       </div>
       <button
         onClick={onClick}

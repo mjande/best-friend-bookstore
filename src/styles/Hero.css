@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 38vh;
 }
 
 .hero-img {
@@ -12,9 +12,9 @@
   background-size: cover;
   position: absolute;
   filter: brightness(0.3);
-  top: 10vh;
+  top: 12vh;
   z-index: -1;
-  height: 40vh;
+  height: 38vh;
   width: 100vw;
 }
 

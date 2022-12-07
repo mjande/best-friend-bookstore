@@ -27,10 +27,23 @@ const NavBar = ({ cartCount, toSearchPage }) => {
           <FontAwesomeIcon icon={faBook} size="xl" />
           <h1>Booklovers Bookstore</h1>
         </Link>
-        <a href="#" className="categories-link">
-          Categories
-          <FontAwesomeIcon icon={faCaretDown} />
-        </a>
+
+        <div className="dropdown">
+          <div className="dropdown-link" aria-hidden="true">
+            Categories
+            <FontAwesomeIcon icon={faCaretDown} />
+          </div>
+          <div className="dropdown-content">
+            <Link to="/books/subject/mystery">Mystery</Link>
+            <Link to="/books/subject/romance">Romance</Link>
+            <Link to="/books/subject/science-fiction">Science Fiction</Link>
+            <Link to="/books/subject/fantasy">Fantasy</Link>
+            <Link to="/books/subject/thriller">Thriller</Link>
+            <Link to="/books/subject/memoir">Memoir</Link>
+            <Link to="/books/subject/essays">Essays</Link>
+          </div>
+        </div>
+
         <form onSubmit={onSubmit}>
           <input type="text" name="search"></input>
           <button>Search</button>
