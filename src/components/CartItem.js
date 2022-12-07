@@ -1,7 +1,17 @@
 import { floatToPriceString } from "../helpers";
 import "../styles/Cart.css";
 
-const CartItem = ({ book }) => {
+const CartItem = ({ book, updateQuantity }) => {
+  function onChange(e) {
+    const newQuantity = e.target.value;
+
+    if (newQuantity === "") {
+      return;
+    }
+
+    updateQuantity(book.key, newQuantity);
+  }
+
   return (
     <tr className="item-container" aria-label="cart-item">
       <td className="description">
@@ -14,7 +24,11 @@ const CartItem = ({ book }) => {
         </div>
       </td>
       <td className="quantity" data-testid="item-quantity">
-        {book.quantity}
+        <input
+          type="number"
+          onChange={onChange}
+          defaultValue={book.quantity}
+        ></input>
       </td>
       <td className="price" data-testid="item-price">
         {floatToPriceString(book.price)}

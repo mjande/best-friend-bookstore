@@ -11,10 +11,10 @@ const NavBar = ({ cartCount }) => {
   return (
     <nav>
       <div className="nav-left">
-        <a href="/" className="header">
+        <Link to="/" className="header">
           <FontAwesomeIcon icon={faBook} size="xl" />
           <h1>Booklovers Bookstore</h1>
-        </a>
+        </Link>
         <a href="#" className="categories-link">
           Categories
           <FontAwesomeIcon icon={faCaretDown} />

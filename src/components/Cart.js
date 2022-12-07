@@ -2,36 +2,9 @@ import CartItem from "./CartItem";
 import { floatToPriceString } from "../helpers";
 import "../styles/Cart.css";
 
-const Cart = ({ cartItems }) => {
-  const fakeCartItems = [
-    {
-      author: "Swift, Jonathan",
-      coverSrc: "https://covers.openlibrary.org/b/id/12717083-M.jpg",
-      key: "/books/OL26445784M",
-      price: 23.200000000000003,
-      quantity: 1,
-      title: "Gulliver's Travels",
-    },
-    {
-      author: "William Shakespeare",
-      coverSrc: "https://covers.openlibrary.org/b/id/7205924-M.jpg",
-      key: "/books/OL24594641M",
-      price: 3.2,
-      quantity: 1,
-      title: "A Midsummer Night's Dream",
-    },
-    {
-      author: "J. R. R. Tolkien",
-      coverSrc: "https://covers.openlibrary.org/b/id/8406786-M.jpg",
-      key: "/books/OL10682512M",
-      price: 14.350000000000001,
-      quantity: 1,
-      title: "The Hobbit",
-    },
-  ];
-
+const Cart = ({ cartItems, updateQuantity }) => {
   function subtotalPrice() {
-    const result = fakeCartItems.reduce(
+    const result = cartItems.reduce(
       (acc, curr) => acc + curr.price * curr.quantity,
       0
     );
@@ -39,7 +12,7 @@ const Cart = ({ cartItems }) => {
   }
 
   function itemsDisplay() {
-    if (fakeCartItems.length === 0) {
+    if (cartItems.length === 0) {
       return (
         <tr>
           <td colSpan={4}>
@@ -51,8 +24,8 @@ const Cart = ({ cartItems }) => {
       );
     }
 
-    return fakeCartItems.map((book, index) => (
-      <CartItem key={index} book={book} />
+    return cartItems.map((book, index) => (
+      <CartItem key={index} book={book} updateQuantity={updateQuantity} />
     ));
   }
 

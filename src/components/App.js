@@ -44,7 +44,7 @@ const App = ({ initialCartItems = [] }) => {
 
   function removeFromCart(e) {
     const cartIndex = cartItems.findIndex(
-      (book) => (book.key = e.target.dataset.editionId)
+      (book) => book.key === e.target.dataset.editionId
     );
 
     if (cartIndex === -1) {
@@ -54,8 +54,22 @@ const App = ({ initialCartItems = [] }) => {
 
     setCartItems([
       ...cartItems.slice(0, cartIndex),
-      ...cartItems.slice(cartIndex + 1, -1),
+      ...cartItems.slice(cartIndex + 1),
     ]);
+  }
+
+  function updateQuantity(bookKey, newQuantity) {
+    const cartIndex = cartItems.findIndex((book) => book.key === bookKey);
+
+    const book = { ...cartItems[cartIndex], quantity: newQuantity };
+
+    const newCart = [
+      ...cartItems.slice(0, cartIndex),
+      book,
+      ...cartItems.slice(cartIndex + 1),
+    ];
+
+    setCartItems(newCart);
   }
 
   return (
@@ -73,7 +87,12 @@ const App = ({ initialCartItems = [] }) => {
             />
           }
         />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart cartItems={cartItems} updateQuantity={updateQuantity} />
+          }
+        />
       </Routes>
     </div>
   );
