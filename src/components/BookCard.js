@@ -19,12 +19,16 @@ const BookCard = ({ book, isInCart, addToCart, removeFromCart }) => {
   return (
     <article className="BookCard">
       <img
-        src={`https://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`}
+        src={
+          book.cover_edition_key
+            ? `https://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`
+            : "https://via.placeholder.com/150x200.png?text=Cover+Not+Available"
+        }
         alt="Book cover"
       ></img>
       <div className="BookCard-details">
         <h3>{book.title}</h3>
-        <h4>by {book.authors[0].name}</h4>
+        <h4>by {book.authors?.[0].name || book.author_name}</h4>
       </div>
       <button
         onClick={onClick}

@@ -78,7 +78,7 @@ const App = ({ initialCartItems = [] }) => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/books/:category"
+          path="/books/:type/:query"
           element={
             <Books
               addToCart={addToCart}

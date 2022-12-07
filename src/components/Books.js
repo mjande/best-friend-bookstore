@@ -10,9 +10,9 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const fetchBooks = async () => {
+    async function fetchSubject() {
       const response = await fetch(
-        `http://openlibrary.org/subjects/${params.category.toLowerCase()}.json`,
+        `http://openlibrary.org/subjects/${params.query.toLowerCase()}.json`,
         {
           mode: "cors",
         }
@@ -22,16 +22,32 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
       const booksData = json.works;
 
       setBooks(booksData);
-    };
+    }
 
-    fetchBooks().catch(console.error);
-  }, [params.category]);
+    async function fetchSearch() {
+      const response = await fetch(
+        `http://openlibrary.org/search.json?q=${params.query}&limit=12`,
+        { mode: "cors" }
+      );
+
+      const json = await response.json();
+      const booksData = json.docs;
+
+      console.log(booksData[7]);
+
+      setBooks(booksData);
+    }
+
+    if (params.type === "subject") {
+      fetchSubject();
+    } else if (params.type === "search") {
+      fetchSearch();
+    }
+  }, [params.query, params.type]);
 
   return (
     <div>
-      <h2 className="category-header">
-        {kebabCaseToTitleCase(params.category)}
-      </h2>
+      <h2 className="category-header">{kebabCaseToTitleCase(params.query)}</h2>
       <hr />
       {/* <Filters />
       <SortBar /> */}
