@@ -27,14 +27,9 @@ nav {
   width: min-content;
 }
 
-input {
-  border: solid 1px grey;
+input.search-bar {
   min-width: 10rem;
   margin-right: 0.5rem;
-  border-radius: 0.5rem;
-  height: 1.5rem;
-  padding: 0.75rem 0;
-  box-sizing: border-box;
 }
 
 button {
@@ -93,7 +88,7 @@ button {
     top: 0.4rem;
   }
 
-  input {
+  input.search-bar {
     width: 15rem;
   }
 }

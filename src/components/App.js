@@ -10,7 +10,7 @@ const App = ({ initialCartItems = [] }) => {
   const [cartItems, setCartItems] = useState(initialCartItems);
 
   function isInCart(key) {
-    return cartItems.some((book) => book.cover_edition_key === key);
+    return cartItems.some((book) => book.key.includes(key));
   }
 
   async function addToCart(e) {
@@ -43,8 +43,8 @@ const App = ({ initialCartItems = [] }) => {
   }
 
   function removeFromCart(e) {
-    const cartIndex = cartItems.findIndex(
-      (book) => book.key === e.target.dataset.editionId
+    const cartIndex = cartItems.findIndex((book) =>
+      book.key.includes(e.target.dataset.editionId)
     );
 
     if (cartIndex === -1) {

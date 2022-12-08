@@ -45,7 +45,7 @@ const NavBar = ({ cartCount, toSearchPage }) => {
         </div>
 
         <form onSubmit={onSubmit}>
-          <input type="text" name="search"></input>
+          <input type="text" name="search" className="search-bar"></input>
           <button>Search</button>
         </form>
       </div>
