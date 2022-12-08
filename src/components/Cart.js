@@ -1,4 +1,5 @@
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 import { floatToPriceString } from "../helpers";
 import "../styles/Cart.css";
 
@@ -59,6 +60,9 @@ const Cart = ({ cartItems, updateQuantity }) => {
             <dt>Total</dt>
             <dd>{floatToPriceString(subtotalPrice() * 1.06)}</dd>
           </dl>
+          <Link className="button" to="/checkout">
+            Checkout
+          </Link>
         </div>
       </div>
     </div>

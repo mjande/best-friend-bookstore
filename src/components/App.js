@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Books from "./Books";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 import "../styles/App.css";
 
 const App = ({ initialCartItems = [] }) => {
@@ -93,6 +94,7 @@ const App = ({ initialCartItems = [] }) => {
             <Cart cartItems={cartItems} updateQuantity={updateQuantity} />
           }
         />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </div>
   );

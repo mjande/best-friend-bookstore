@@ -1,7 +1,6 @@
 import BookCard from "./BookCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { kebabCaseToTitleCase } from "../helpers";
 
 import "../styles/Books.css";
@@ -30,7 +29,7 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
 
     async function fetchSearch() {
       const response = await fetch(
-        `http://openlibrary.org/search.json?q=${params.query}&limit=12`,
+        `http://openlibrary.org/search.json?q=${params.query}&limit=12&offset=${page}`,
         { mode: "cors" }
       );
 

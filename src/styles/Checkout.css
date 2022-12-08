@@ -1,0 +1,33 @@
+.checkout-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+
+iframe {
+  position: absolute;
+}
+
+h3 {
+  margin: 1rem;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+i {
+  font-size: 2rem;
+}
+
+.github-username {
+  font-size: 2rem;
+}
