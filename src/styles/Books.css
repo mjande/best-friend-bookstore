@@ -1,0 +1,29 @@
+.category-header {
+  margin: 1rem 3rem;
+}
+
+hr {
+  margin: 0 2rem;
+}
+
+.books-container {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  padding: 1rem 0;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.page-control {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.invisible {
+  visibility: hidden;
+}

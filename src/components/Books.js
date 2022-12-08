@@ -1,18 +1,22 @@
 import BookCard from "./BookCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { kebabCaseToTitleCase } from "../helpers";
 
-import "../styles/Category.css";
+import "../styles/Books.css";
 
 const Books = ({ addToCart, removeFromCart, isInCart }) => {
   const params = useParams();
   const [books, setBooks] = useState([]);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     async function fetchSubject() {
       const response = await fetch(
-        `http://openlibrary.org/subjects/${params.query.toLowerCase()}.json`,
+        `http://openlibrary.org/subjects/${params.query.toLowerCase()}.json?offset=${
+          page * 12
+        }`,
         {
           mode: "cors",
         }
@@ -43,7 +47,7 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
     } else if (params.type === "search") {
       fetchSearch();
     }
-  }, [params.query, params.type]);
+  }, [params.query, params.type, page]);
 
   return (
     <div>
@@ -63,6 +67,18 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
             />
           );
         })}
+      </div>
+      <div className="page-control">
+        <button
+          className={`link ${page === 0 ? "invisible" : ""}`}
+          onClick={() => setPage(page - 1)}
+        >
+          &lt;&lt;
+        </button>
+        <div>{page + 1}</div>
+        <button className="link" onClick={() => setPage(page + 1)}>
+          &gt;&gt;
+        </button>
       </div>
     </div>
   );
