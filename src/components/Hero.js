@@ -5,7 +5,9 @@ const Hero = () => {
     <section className="hero" aria-label="hero">
       <div className="hero-img" role="img"></div>
       <div>
-        <q>A room without books is like a body without a soul.</q>
+        <q aria-label="quote">
+          A room without books is like a body without a soul.
+        </q>
         <p>Cicero</p>
       </div>
     </section>

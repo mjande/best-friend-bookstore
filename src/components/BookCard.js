@@ -2,8 +2,6 @@ import { useState } from "react";
 import "../styles/BookCard.css";
 
 const BookCard = ({ book, isInCart, addToCart, removeFromCart }) => {
-  console.log(book);
-
   const [cartStatus, setCartStatus] = useState(
     isInCart(book.cover_edition_key)
   );

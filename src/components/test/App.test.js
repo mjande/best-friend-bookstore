@@ -26,12 +26,14 @@ describe("App", () => {
   describe("Add To Cart button", () => {
     it("increments cart item count in navbar", async () => {
       render(
-        <MemoryRouter initialEntries={["/books/test"]}>
+        <MemoryRouter initialEntries={["/books/subject/test"]}>
           <App />
         </MemoryRouter>
       );
 
-      const addToCartBtn = await screen.findByRole("button");
+      const addToCartBtn = await screen.findByRole("button", {
+        name: "Add to Cart",
+      });
       userEvent.click(addToCartBtn);
 
       const newCartCount = await screen.findByText("1 items");
@@ -40,12 +42,14 @@ describe("App", () => {
 
     it("displays new cart item on cart page", async () => {
       render(
-        <MemoryRouter initialEntries={["/books/test"]}>
+        <MemoryRouter initialEntries={["/books/subject/test"]}>
           <App />
         </MemoryRouter>
       );
 
-      const addToCartBtn = await screen.findByRole("button");
+      const addToCartBtn = await screen.findByRole("button", {
+        name: "Add to Cart",
+      });
       userEvent.click(addToCartBtn);
 
       const cartPageLink = screen.getByRole("link", { name: /items/i });
@@ -61,7 +65,7 @@ describe("App", () => {
       expect(authorElement).toHaveTextContent("Mock Author");
 
       const quantityElement = await screen.findByTestId("item-quantity");
-      expect(quantityElement).toHaveTextContent("1");
+      expect(quantityElement).toHaveValue(1);
 
       const priceElement = await screen.findByTestId("item-price");
       expect(priceElement).toHaveTextContent("$10.00");
@@ -75,12 +79,13 @@ describe("App", () => {
     const book = {
       title: "Mock Title",
       authors: [{ name: "Mock Author" }],
+      key: "0",
       cover_edition_key: "0",
     };
 
     it("decrements cart item count in navbar", async () => {
       render(
-        <MemoryRouter initialEntries={["/books/test"]}>
+        <MemoryRouter initialEntries={["/books/subject/test"]}>
           <App initialCartItems={[book]} />
         </MemoryRouter>
       );
@@ -96,7 +101,7 @@ describe("App", () => {
 
     it("removes item from cart page", async () => {
       render(
-        <MemoryRouter initialEntries={["/books/test"]}>
+        <MemoryRouter initialEntries={["/books/subject/test"]}>
           <App initialCartItems={[book]} />
         </MemoryRouter>
       );

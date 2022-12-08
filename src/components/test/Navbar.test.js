@@ -10,8 +10,8 @@ describe("Navbar", () => {
     const headerElement = screen.getByRole("heading");
     const links = screen.getAllByRole("link");
 
-    expect(headerElement.textContent).toBe("Best Friend Bookstore");
-    expect(links).toHaveLength(3);
+    expect(headerElement.textContent).toBe("Booklovers Bookstore");
+    expect(links).toHaveLength(9);
 
     expect(container).toMatchSnapshot();
   });

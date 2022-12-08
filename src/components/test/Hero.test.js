@@ -8,11 +8,11 @@ describe("Hero", () => {
     const { container } = render(<Hero />);
 
     const imgElement = screen.getByRole("img");
-    const quoteElement = screen.getByRole("heading");
+    const quoteElement = screen.getByLabelText("quote");
 
     expect(imgElement).toBeInTheDocument();
     expect(quoteElement.textContent).toBe(
-      "“Outside of a dog, a book is man's best friend. Inside of a dog it's too dark to read.”  Groucho Marx"
+      "A room without books is like a body without a soul."
     );
     expect(container).toMatchSnapshot();
   });

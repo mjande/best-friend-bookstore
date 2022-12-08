@@ -4,7 +4,8 @@ import Books from "../Books";
 
 jest.mock("react-router-dom", () => ({
   useParams: () => ({
-    category: "test",
+    type: "subject",
+    query: "test",
   }),
 }));
 

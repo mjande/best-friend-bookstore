@@ -30,7 +30,7 @@ describe("CartItem", () => {
     expect(authorElement.textContent).toBe("Test Author");
 
     const quantityElement = screen.getByTestId("item-quantity");
-    expect(quantityElement.textContent).toBe("2");
+    expect(quantityElement.value).toBe("2");
 
     const priceElement = screen.getByTestId("item-price");
     expect(priceElement.textContent).toBe("$10.00");

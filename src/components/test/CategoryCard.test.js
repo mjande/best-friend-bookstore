@@ -14,7 +14,7 @@ describe("CategoryCard", () => {
     const LinkElement = screen.getByRole("link");
     expect(LinkElement).toBeInTheDocument();
     expect(LinkElement).toHaveTextContent("Test");
-    expect(LinkElement).toHaveAttribute("href", "/books/test");
+    expect(LinkElement).toHaveAttribute("href", "/books/subject/test");
 
     expect(container).toMatchSnapshot();
   });

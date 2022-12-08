@@ -23,8 +23,9 @@ const CartItem = ({ book, updateQuantity }) => {
           </div>
         </div>
       </td>
-      <td className="quantity" data-testid="item-quantity">
+      <td className="quantity">
         <input
+          data-testid="item-quantity"
           type="number"
           onChange={onChange}
           defaultValue={book.quantity}

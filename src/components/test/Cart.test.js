@@ -45,7 +45,7 @@ describe("Cart", () => {
     const cartItemElements = screen.getAllByRole("row", { name: "cart-item" });
     expect(cartItemElements).toHaveLength(2);
 
-    expect(screen.getByTestId("cart-total")).toBeInTheDocument();
+    expect(screen.getByTestId("order-summary")).toBeInTheDocument();
   });
 
   it("renders empty cart message with empty cart", () => {
