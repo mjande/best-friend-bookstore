@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/booklovers-bookstore/static/css/main.0dfadef7.css",
-    "main.js": "/booklovers-bookstore/static/js/main.30df672b.js",
+    "main.js": "/booklovers-bookstore/static/js/main.196a02e0.js",
     "static/media/pexels-ksenia-chernaya-3952071.jpg": "/booklovers-bookstore/static/media/pexels-ksenia-chernaya-3952071.6808db0ffc78453cc7e6.jpg",
     "static/media/pexels-hristo-fidanov-1252890.jpg": "/booklovers-bookstore/static/media/pexels-hristo-fidanov-1252890.c9e48ce79341fc97fb29.jpg",
     "static/media/pexels-picjumbocom-196664.jpg": "/booklovers-bookstore/static/media/pexels-picjumbocom-196664.fef7335d4a4270652834.jpg",
@@ -9,10 +9,10 @@
     "static/media/pexels-cottonbro-studio-8369520.jpg": "/booklovers-bookstore/static/media/pexels-cottonbro-studio-8369520.d551bdaa026e354cdc91.jpg",
     "index.html": "/booklovers-bookstore/index.html",
     "main.0dfadef7.css.map": "/booklovers-bookstore/static/css/main.0dfadef7.css.map",
-    "main.30df672b.js.map": "/booklovers-bookstore/static/js/main.30df672b.js.map"
+    "main.196a02e0.js.map": "/booklovers-bookstore/static/js/main.196a02e0.js.map"
   },
   "entrypoints": [
     "static/css/main.0dfadef7.css",
-    "static/js/main.30df672b.js"
+    "static/js/main.196a02e0.js"
   ]
 }
