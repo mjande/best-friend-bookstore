@@ -15,6 +15,7 @@ const App = ({ initialCartItems = [] }) => {
   }
 
   async function addToCart(e) {
+    // TODO: Extract fetching logic to POJO
     const workID = e.target.dataset.workId;
     const workResponse = await fetch(`https://openlibrary.org${workID}.json`);
     const work = await workResponse.json();

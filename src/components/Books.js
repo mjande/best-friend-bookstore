@@ -11,9 +11,10 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
   const [page, setPage] = useState(0);
 
   useEffect(() => {
+    // TODO: Extract to POJO
     async function fetchSubject() {
       const response = await fetch(
-        `http://openlibrary.org/subjects/${params.query.toLowerCase()}.json?offset=${
+        `https://openlibrary.org/subjects/${params.query.toLowerCase()}.json?offset=${
           page * 12
         }`,
         {
