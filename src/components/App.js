@@ -78,9 +78,9 @@ const App = ({ initialCartItems = [] }) => {
     <div>
       <Navbar cartCount={cartItems.length} />
       <Routes>
-        <Route path={process.env.PUBLIC_URL + "/"} element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
-          path={process.env.PUBLIC_URL + "/books/:type/:query"}
+          path="/books/:type/:query"
           element={
             <Books
               addToCart={addToCart}
@@ -90,15 +90,12 @@ const App = ({ initialCartItems = [] }) => {
           }
         />
         <Route
-          path={process.env.PUBLIC_URL + "/cart"}
+          path="/cart"
           element={
             <Cart cartItems={cartItems} updateQuantity={updateQuantity} />
           }
         />
-        <Route
-          path={process.env.PUBLIC_URL + "/checkout"}
-          element={<Checkout />}
-        />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </div>
   );
