@@ -1,6 +1,6 @@
 # Booklovers Bookstore
 
-![Books Page for Science Fiction](./src/img/science-fiction-page.jpg.png);
+<kbd>![Books Page for Science Fiction](./src/img/science-fiction-page.jpg.png)</kbd>
 
 Booklovers bookstore is a generic online shopping application. It is built on React and React Router, tested using Jest and React Testing Library, and uses book and cover data from the [Open Library API](https://openlibrary.org/dev/docs/api/).
 
