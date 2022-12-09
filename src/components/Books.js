@@ -30,7 +30,7 @@ const Books = ({ addToCart, removeFromCart, isInCart }) => {
 
     async function fetchSearch() {
       const response = await fetch(
-        `http://openlibrary.org/search.json?q=${params.query}&limit=12&offset=${page}`,
+        `https://openlibrary.org/search.json?q=${params.query}&limit=12&offset=${page}`,
         { mode: "cors" }
       );
 
