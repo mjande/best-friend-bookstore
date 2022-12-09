@@ -5,7 +5,10 @@ import "../styles/CategoryCard.css";
 const CategoryCard = ({ name }) => {
   return (
     <div className={`category ${name}`}>
-      <Link to={`/books/subject/${name}`} className="category-link">
+      <Link
+        to={process.env.PUBLIC_URL + `/books/subject/${name}`}
+        className="category-link"
+      >
         {kebabCaseToTitleCase(name)}
       </Link>
     </div>
