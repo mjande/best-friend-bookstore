@@ -60,7 +60,7 @@ const Cart = ({ cartItems, updateQuantity }) => {
             <dt>Total</dt>
             <dd>{floatToPriceString(subtotalPrice() * 1.06)}</dd>
           </dl>
-          <Link className="button" to={process.env.PUBLIC_URL + "/checkout"}>
+          <Link className="button" to="/checkout">
             Checkout
           </Link>
         </div>

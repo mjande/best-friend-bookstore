@@ -17,13 +17,13 @@ const NavBar = ({ cartCount, toSearchPage }) => {
 
     if (data.get("search") === "") return;
 
-    navigate(process.env.PUBLIC_URL + `/books/search/${data.get("search")}`);
+    navigate(`/books/search/${data.get("search")}`);
   }
 
   return (
     <nav>
       <div className="nav-left">
-        <Link to={process.env.PUBLIC_URL + "/"} className="header">
+        <Link to="/" className="header">
           <FontAwesomeIcon icon={faBook} size="xl" />
           <h1>Booklovers Bookstore</h1>
         </Link>
@@ -34,29 +34,13 @@ const NavBar = ({ cartCount, toSearchPage }) => {
             <FontAwesomeIcon icon={faCaretDown} />
           </div>
           <div className="dropdown-content">
-            <Link to={process.env.PUBLIC_URL + "/books/subject/mystery"}>
-              Mystery
-            </Link>
-            <Link to={process.env.PUBLIC_URL + "/books/subject/romance"}>
-              Romance
-            </Link>
-            <Link
-              to={process.env.PUBLIC_URL + "/books/subject/science-fiction"}
-            >
-              Science Fiction
-            </Link>
-            <Link to={process.env.PUBLIC_URL + "/books/subject/fantasy"}>
-              Fantasy
-            </Link>
-            <Link to={process.env.PUBLIC_URL + "/books/subject/thriller"}>
-              Thriller
-            </Link>
-            <Link to={process.env.PUBLIC_URL + "/books/subject/memoir"}>
-              Memoir
-            </Link>
-            <Link to={process.env.PUBLIC_URL + "/books/subject/essays"}>
-              Essays
-            </Link>
+            <Link to="/books/subject/mystery">Mystery</Link>
+            <Link to="/books/subject/romance">Romance</Link>
+            <Link to="/books/subject/science-fiction">Science Fiction</Link>
+            <Link to="/books/subject/fantasy">Fantasy</Link>
+            <Link to="/books/subject/thriller">Thriller</Link>
+            <Link to="/books/subject/memoir">Memoir</Link>
+            <Link to="/books/subject/essays">Essays</Link>
           </div>
         </div>
 
@@ -67,7 +51,7 @@ const NavBar = ({ cartCount, toSearchPage }) => {
       </div>
 
       <div className="nav-right">
-        <Link to={process.env.PUBLIC_URL + "/cart"} className="cart-link">
+        <Link to="/cart" className="cart-link">
           <FontAwesomeIcon icon={faCartShopping} aria-hidden="true" />
           <div data-testid="cart-items-count">{cartCount} items</div>
         </Link>
